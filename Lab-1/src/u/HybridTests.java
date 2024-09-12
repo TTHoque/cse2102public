@@ -23,12 +23,12 @@ public class HybridTests {
 	double mpg = gasMiles/gallons;
 	double mpge = (electricMiles/totalkwh) * 33.7;
 
-	double epsilon = 0.000001;
+	double epsilon = 1e-10;
 	
 	@Before
 	public void setUp() throws Exception {
 		hybrid = new Hybrid();
-		hybrid.setGallonsfromGas(gasMiles);
+		hybrid.setMilesfromGas(gasMiles);
 		hybrid.setElectricMiles(electricMiles);
 		hybrid.setGallonsfromGas(gallons);
 		hybrid.setTotalkWh(totalkwh);
@@ -75,5 +75,23 @@ public class HybridTests {
 		double actual = hybrid.totalElectricCost();
 		assertTrue(Math.abs(actual - expected) < epsilon);
 
+	}
+
+	@Test
+	public void fixedValueExamples() {
+
+		// Testing examples given in instructions
+		// The values were rounded up to the nearest hundredth
+		double error = 0.01;
+
+		hybrid.setMilesfromGas(120);
+		hybrid.setElectricMiles(300);
+		hybrid.setGallonsfromGas(6);
+		hybrid.setTotalkWh(70);
+		hybrid.setCostPerGal(3.50);
+		hybrid.setCostPerKWH(0.24);
+
+		assertTrue(Math.abs(hybrid.calcMPGe() - 144.43) < error);
+		assertTrue(Math.abs(hybrid.totalGasCost() - 21) < error);
 	}
 }
