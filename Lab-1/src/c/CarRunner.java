@@ -28,6 +28,8 @@ public class CarRunner {
         double gasCost = hybridCar.totalGasCost();
         System.out.println("Total cost of gasoline: " + gasCost);
 
+        double elecCost = hybridCar.totalElectricCost();
+        System.out.println("Total cost of electricity: " + elecCost);
 
     }
 
