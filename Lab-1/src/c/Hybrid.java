@@ -1,4 +1,4 @@
-// package c;
+package c;
 
 public class Hybrid implements ElectricInterface, GasolineInterface {
 
