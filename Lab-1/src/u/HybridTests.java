@@ -20,27 +20,60 @@ public class HybridTests {
 	double galCost = 3.50;
 	double kwhCost = 0.24;
 
+	double mpg = gasMiles/gallons;
+	double mpge = (electricMiles/totalkwh) * 33.7;
+
+	double epsilon = 0.000001;
 	
 	@Before
 	public void setUp() throws Exception {
 		hybrid = new Hybrid();
-	}
-
-	@Test
-	public void mpgTest() {
 		hybrid.setGallonsfromGas(gasMiles);
 		hybrid.setElectricMiles(electricMiles);
 		hybrid.setGallonsfromGas(gallons);
 		hybrid.setTotalkWh(totalkwh);
 		hybrid.setCostPerGal(galCost);
 		hybrid.setCostPerKWH(kwhCost);
+	}
 
-        double epsilon = 0.00001;
-		
+	@Test
+	public void mpgTest() {
 		// MPG
-		double expected = gasMiles/gallons;
+		double expected = mpg;
 		double actual = hybrid.calcGasMPG();
-		assertTrue(5==5);
-		
+		assertTrue(Math.abs(actual - expected) < epsilon);
+	}
+
+	@Test
+	public void mpgeTest() {
+		// MPGe
+		double expected = mpge;
+		double actual = hybrid.calcMPGe();
+		assertTrue(Math.abs(actual - expected) < epsilon);
+	}
+	
+	@Test
+	public void avgMPGTest() {
+		// average MPG during Hybrid Mode
+		double expected = (mpg + mpge) / 2;
+		double actual = hybrid.calcHybridModeMPG();
+		assertTrue(Math.abs(actual - expected) < epsilon);
+	}
+
+	@Test
+	public void gasCostTest() {
+		// total gas cost
+		double expected = gallons * galCost;
+		double actual = hybrid.totalGasCost();
+		assertTrue(Math.abs(actual - expected) < epsilon);
+	}
+
+	@Test
+	public void electricCostTest() {
+		// total electric cost
+		double expected = totalkwh * kwhCost;
+		double actual = hybrid.totalElectricCost();
+		assertTrue(Math.abs(actual - expected) < epsilon);
+
 	}
 }
