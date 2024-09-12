@@ -1,0 +1,6 @@
+$ javac NoisyAnimal.javac
+$ java NoisyAnimal
+
+My name is: null
+Bark bark
+My name is: FastRunner
