@@ -10,4 +10,5 @@ javac -cp junit-4.13.2.jar "./src/c/CarRunner.java" "./src/c/Hybrid.java" "./src
 java -cp "junit-4.13.2.jar:hamcrest-core-1.3.jar:./src/" org.junit.runner.JUnitCore u.HybridTests
 
 java -cp "./src/" c.CarRunner
+,
 
