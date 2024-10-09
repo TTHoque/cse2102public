@@ -5,4 +5,6 @@ public interface PizzaInterface {
     void bake();
     void cut();
     void box();
+
+    void isItDone();
 }

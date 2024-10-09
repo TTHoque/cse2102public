@@ -36,4 +36,17 @@ public class CheesePizza implements PizzaInterface {
             phase++;
         }
     }
+
+    public void isItDone() {
+        if (phase != 4) {
+            System.out.println("It isn't done yet");
+            this.prepare();
+            this.bake();
+            this.cut();
+            this.box();
+            System.out.println("Finished making a cheese pizza\n");
+        } else {
+            System.out.println("Finished making a cheese pizza\n");
+        }
+    }
 }

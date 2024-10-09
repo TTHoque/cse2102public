@@ -1,6 +1,6 @@
 package com.mycompany.app;
 
-public class GlutenFreePizza {
+public class GlutenFreePizza implements PizzaInterface {
     int phase;
 
     public GlutenFreePizza() {
@@ -33,6 +33,19 @@ public class GlutenFreePizza {
         if (phase == 3) {
             System.out.println("-boxing a gluten free pizza");
             phase++;
+        }
+    }
+
+    public void isItDone() {
+        if (phase != 4) {
+            System.out.println("It isn't done yet");
+            this.prepare();
+            this.bake();
+            this.cut();
+            this.box();
+            System.out.println("Finished making a cheese pizza\n");
+        } else {
+            System.out.println("Finished making a gluten free pizza\n");
         }
     }
 }
