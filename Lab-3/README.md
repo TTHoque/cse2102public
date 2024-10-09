@@ -1,5 +1,6 @@
-In /pizza_factory directory.
+In /pizza_factory/ directory.
 
 > mvn clean compile
+
 > mvn test
 
