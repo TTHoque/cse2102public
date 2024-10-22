@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.1" name="com.mycompany.app.AppTest" time="0.147" tests="5" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.1" name="com.mycompany.app.AppTest" time="0.219" tests="5" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="21"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
@@ -11,7 +11,7 @@
     <property name="java.vm.specification.version" value="21"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.boot.library.path" value="/usr/local/sdkman/candidates/java/21.0.4-ms/lib"/>
-    <property name="sun.java.command" value="/workspaces/cse2102public/Lab-3/pizza_factory/target/surefire/surefirebooter-20241009035234638_3.jar /workspaces/cse2102public/Lab-3/pizza_factory/target/surefire 2024-10-09T03-52-34_525-jvmRun1 surefire-20241009035234638_1tmp surefire_0-20241009035234638_2tmp"/>
+    <property name="sun.java.command" value="/workspaces/cse2102public/Lab-3/pizza_factory/target/surefire/surefirebooter-20241022161502623_3.jar /workspaces/cse2102public/Lab-3/pizza_factory/target/surefire 2024-10-22T16-15-02_337-jvmRun1 surefire-20241022161502623_1tmp surefire_0-20241022161502623_2tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="/workspaces/cse2102public/Lab-3/pizza_factory/target/test-classes:/workspaces/cse2102public/Lab-3/pizza_factory/target/classes:/home/codespace/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.11.0/junit-jupiter-api-5.11.0.jar:/home/codespace/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar:/home/codespace/.m2/repository/org/junit/platform/junit-platform-commons/1.11.0/junit-platform-commons-1.11.0.jar:/home/codespace/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/home/codespace/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.11.0/junit-jupiter-params-5.11.0.jar:"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -26,7 +26,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
-    <property name="surefire.real.class.path" value="/workspaces/cse2102public/Lab-3/pizza_factory/target/surefire/surefirebooter-20241009035234638_3.jar"/>
+    <property name="surefire.real.class.path" value="/workspaces/cse2102public/Lab-3/pizza_factory/target/surefire/surefirebooter-20241022161502623_3.jar"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="21.0.4+7-LTS"/>
     <property name="user.name" value="codespace"/>
@@ -53,7 +53,7 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="65.0"/>
   </properties>
-  <testcase name="WrongOrder" classname="com.mycompany.app.AppTest" time="0.105">
+  <testcase name="WrongOrder" classname="com.mycompany.app.AppTest" time="0.091">
     <system-out><![CDATA[Cheese Pizza
 It isn't done yet
 ----preparing a cheese pizza
@@ -64,7 +64,7 @@ Finished making a cheese pizza
 
 ]]></system-out>
   </testcase>
-  <testcase name="GlutenFreePizza" classname="com.mycompany.app.AppTest" time="0.002">
+  <testcase name="GlutenFreePizza" classname="com.mycompany.app.AppTest" time="0.011">
     <system-out><![CDATA[GlutenFree Pizza
 ----preparing a gluten free pizza
 ---baking a gluten free pizza
@@ -74,7 +74,7 @@ Finished making a gluten free pizza
 
 ]]></system-out>
   </testcase>
-  <testcase name="PepperoniPizza" classname="com.mycompany.app.AppTest" time="0.002">
+  <testcase name="PepperoniPizza" classname="com.mycompany.app.AppTest" time="0.003">
     <system-out><![CDATA[Pepperoni Pizza
 ----preparing a pepperoni pizza
 ---baking a pepperoni pizza
@@ -84,7 +84,7 @@ Finished making a pepperoni pizza
 
 ]]></system-out>
   </testcase>
-  <testcase name="CheesePizza" classname="com.mycompany.app.AppTest" time="0.001">
+  <testcase name="CheesePizza" classname="com.mycompany.app.AppTest" time="0.011">
     <system-out><![CDATA[Cheese Pizza
 ----preparing a cheese pizza
 ---baking a cheese pizza
@@ -94,7 +94,7 @@ Finished making a cheese pizza
 
 ]]></system-out>
   </testcase>
-  <testcase name="GreekPizza" classname="com.mycompany.app.AppTest" time="0.001">
+  <testcase name="GreekPizza" classname="com.mycompany.app.AppTest" time="0.006">
     <system-out><![CDATA[Greek Pizza
 ----preparing a greek pizza
 ---baking a greek pizza

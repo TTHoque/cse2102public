@@ -1,4 +1,4 @@
-from flash import Flask, request
+from flask import Flask, request
 
 app = Flask(__name__)
 
@@ -6,7 +6,7 @@ app = Flask(__name__)
 def hello():
     return " you called\n"
 
-@app.route("/echo", method=['POST'])
+@app.route("/echo", methods=['POST'])
 def echo():
     return "You said: " + request.form['text']
 
