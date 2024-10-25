@@ -11,14 +11,29 @@ print(response.status_code)
 print(response.text)
 
 mydata = {
-    "text": "Hello Phil!",
+    "text": "Hello!",
     "param2": "Making a POST request",
     "body": "my own value"
 }
 
-# A POST request to the API
 response = httpx.post(url + "echo", data=mydata)
 
-# Print the response
 print(response.status_code)
 print(response.text) 
+
+print("\n")
+
+authdata = {
+    "id":"tahera.hoque", 
+    "token": "cse2102-lab4"
+}
+
+response = httpx.post(url + "home", data=authdata)
+print(response.status_code)
+print(response.text)
+
+print("\n")
+
+response = httpx.post(url + "home")
+print(response.status_code)
+print(response.text)
