@@ -1,32 +1,57 @@
-from flask import Flask, request, redirect, g
+from flask import Flask, request, redirect, url_for, session, make_response, g
 
 app = Flask(__name__)
+app.secret_key = 'lab4'
 
 @app.route("/")
 def hello():
-    return " you called\n"
+    if 'id' in session:
+        user_id = session['id']
+        return redirect(url_for("home"))
+    return " you called\n" + \
+        "<a href='/login'> login </a>"
 
 @app.route("/echo", methods=['POST'])
 def echo():
     return "You said: " + request.form['text']
 
+def token_required(func):
+    def decorator(*args, **kwargs):
+        token = None
+        if 'token' in request.headers:
+            token = request.form['token']
+        if not token:
+            return make_response(jsonify({"token missing"}), 401)
 
-def login_required(func):
-    def decorated_func(*args, **kwargs):
-        if g.user is None:
-            return redirect(url_for("login", next=request.url))
-        return func(*args, **kwargs)
-    return decorated_func
+                
 
-@app.route("/private")
-@login_required
-def home():
-   return "Welcome " + user_id + " }:^]"
+@token_required
+@app.route("/home")
+def home(): 
+    return "Welcome " + user_id + "<br>" \
+        "<a href='/logout'> logout </a>"
 
-@app.route("/login", methods=['GET', 'POST'])
+@app.route('/login', methods = ['GET', 'POST'])
 def login():
-    if request.method == "GET":
-        
+    login_form = '''
+    <form action = "" method = "post">
+      <p><input type = text name = id/></p>
+      <p<<input type = submit value = Login/></p>
+    </form>
+    '''
+    
+    if request.method == "POST":
+        session['id'] = request.form['id']
+        token = request.form['id']
+        return redirect(url_for('home'))
+    
+    else: 
+        return login_form
+
+@app.route('/logout')
+def logout():
+    session.pop('id', None)
+    return redirect(url_for(''))
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0")
