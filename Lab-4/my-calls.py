@@ -25,7 +25,7 @@ print("\n")
 
 authdata = {
     "id":"tahera.hoque", 
-    "token": "cse2102-lab4"
+    "token": "th-token"
 }
 
 response = httpx.post(url + "home", data=authdata)

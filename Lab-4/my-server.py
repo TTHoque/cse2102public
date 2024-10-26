@@ -3,6 +3,10 @@ from flask import Flask, request, redirect, url_for, session, make_response, g
 app = Flask(__name__)
 app.secret_key = 'lab4'
 
+user_data = {
+    "th-token":"tahera.hoque"
+}
+
 @app.route("/")
 def hello():
     if 'id' in session:
@@ -23,7 +27,13 @@ def token_required(func):
         if not token:
             return make_response(jsonify({"token missing"}), 401)
 
-                
+        try: 
+            user_id = user_data[token]
+        except: 
+            return make_response(jsonify({"invalid token"}), 401)
+        
+        return func(user_id, *args, **kwargs)
+    return decorator
 
 @token_required
 @app.route("/home")
