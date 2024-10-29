@@ -1,4 +1,4 @@
-from flask import Flask, request, redirect, url_for, session, make_response, g
+from flask import Flask, request, redirect, url_for, session, make_response, jsonify, abort
 
 app = Flask(__name__)
 app.secret_key = 'lab4'
@@ -9,10 +9,11 @@ user_data = {
 
 @app.route("/")
 def hello():
+    user_id = None
     if 'id' in session:
         user_id = session['id']
         return redirect(url_for("home"))
-    return " you called\n" + \
+    return " you called" + "<br>" + \
         "<a href='/login'> login </a>"
 
 @app.route("/echo", methods=['POST'])
@@ -38,25 +39,30 @@ def token_required(func):
 @token_required
 @app.route("/home")
 def home(): 
-    return "Welcome " + user_id + "<br>" \
+    return "Welcome " + g.user_id + "<br>" \
         "<a href='/logout'> logout </a>"
 
 @app.route('/login', methods = ['GET', 'POST'])
 def login():
     login_form = '''
     <form action = "" method = "post">
-      <p><input type = text name = id/></p>
+      <p>User ID<input type = text name = id/></p>
       <p<<input type = submit value = Login/></p>
     </form>
     '''
     
     if request.method == "POST":
-        session['id'] = request.form['id']
-        token = request.form['id']
+        user_id = request.form['id']
+        session['id'] = user_id
+        if 'token' in request.headers:
+            token = request.form['token']
+        else:
+            token = 'token.' + user_id
+            request.form['token'] = token
+            user_data[token] = user_id
         return redirect(url_for('home'))
     
-    else: 
-        return login_form
+    return login_form
 
 @app.route('/logout')
 def logout():
